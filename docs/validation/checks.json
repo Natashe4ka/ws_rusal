@@ -1,0 +1,23 @@
+{
+  "checked_on": "2026-11-20",
+  "full_suite": {
+    "passed": 47,
+    "seconds": 336.9,
+    "log_sha256": "1dd5a3372f19f01822639920ac6e54ff47b6427e5ba7bf61e7b5d1a52e7df724"
+  },
+  "source_archive": {
+    "relocated_regression_checks_passed": 5,
+    "headless_scene_created": true,
+    "workstation_paths_in_scene": false
+  },
+  "formatting": {
+    "tool": "ruff",
+    "version": "0.17.6",
+    "python_ast_preserved_by_formatting": true,
+    "syntax_lint_passed": true
+  },
+  "github_actions": {
+    "configured": true,
+    "executed_remotely": false
+  }
+}

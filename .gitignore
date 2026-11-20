@@ -1,0 +1,32 @@
+# Python and local environments
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+.ruff_cache/
+# Build products
+/build/
+/install/
+/log/
+/dist/
+# Simulation output and local project reports
+/results/
+/src/rusal_description/mjcf/*.xml
+/scripts/build_project_report.py
+/scripts/commands_used.md
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+.idea/
+.vscode/
+
+# Generated source-archive manifest
+/SOURCE_MANIFEST.json

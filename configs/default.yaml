@@ -1,0 +1,163 @@
+seed: 42
+ingot:
+  length: 0.4
+  width: 0.2
+  thickness: 0.04
+  mass: 7.5
+  density: 2700
+  taper_angle_deg: 3
+  rib_height: 0.01
+  rib_pitch: 0.035
+  rib_width: 0.012
+  rib_rows: 3
+  rib_row_gap: 0.012
+  variant: B
+contacts:
+  aluminum_aluminum: 0.35
+  aluminum_floor: 0.45
+  aluminum_steel: 0.3
+  aluminum_rubber: 0.65
+  torsional: 0.001
+  rolling: 0.0001
+  solref: [0.01, 1]
+  solimp: [0.9, 0.95, 0.001]
+solver:
+  sleep: false
+  sleep_tolerance: 0.001
+  timestep: 0.001
+  iterations: 100
+  tolerance: 1.0e-9
+vacuum:
+  layout: V1
+  diameter: 0.08
+  cup_x: [-0.12, 0, 0.12]
+  rectangle: [0.16, 0.08]
+  pressure_pa: 60000
+  build_tau: 0.12
+  loss_tau: 0.04
+  smooth_efficiency: 0.85
+  ribbed_efficiency: 0.015
+  contamination: 0
+  sample_count: 32
+  seal_height_tolerance: 0.0015
+  angle_tolerance_deg: 12
+  pad_half_thickness: 0.005
+  pad_center_z: -0.020
+  adhesion_gap: 0.001
+  compliance: 0.006
+  spring_stiffness: 15000
+  spring_damping: 20
+jaws:
+  force_per_jaw: 300
+  kp: 20000
+  damping: 100
+  max_speed: 0.08
+  open_half_gap: 0.135
+  closed_travel: 0.04
+  deploy_travel: 0.05
+  tip: flat
+experiment:
+  duration: 4.5
+  approach_end: 0.6
+  lift_start: 1.3
+  lift_end: 2.8
+  lift_height: 0.2
+  release_time: 3.7
+  sample_period: 0.01
+  transport_acceleration: 0
+  transport_tilt_deg: 0
+  positioning_tolerance: 0.005
+  orientation_tolerance_deg: 3
+  max_relative_displacement: 0.015
+pallet:
+  length: 1.2
+  width: 0.8
+  height: 0.18
+  center: [0.8, 0.6]
+heap:
+  area: [2, 2]
+  drop_interval: 0.7
+  settle_time: 4
+  kinetic_energy_tolerance: 0.1
+
+fixture:
+  initial_height: 0.12
+  preload: 0.001
+  kp: 100000
+  kv: 1000
+  damping: 10
+  angular_damping: 10
+  max_force: 5000
+
+robot:
+  base: [-1.2, 0, 0]
+  tool_mount_distance: 0.20
+  adapter_radius: 0.035
+  adapter_length: 0.135
+  adapter_density: 2700
+  position_kp: 5000
+  position_kv: 200
+  joint_damping: 20
+
+rib_fingers:
+  groove_center_x: 0.1225
+  retracted_height: 0.023
+  half_sizes: [0.004, 0.025, 0.004]
+heap_execution:
+  heap_shift: [0.25, -0.9]
+  home_height: 1.0
+  safe_height: 0.8
+  minimum_face_cosine: 0.7
+  ray_clearance: 0.12
+  lift_height: 0.22
+  minimum_lift: 0.18
+  maximum_neighbor_shift: 0.005
+  maximum_transport_error: 0.015
+  minimum_pressure_pa: 40000
+  minimum_seal_quality: 0.5
+  minimum_live_cups: 2
+  sample_period: 0.02
+  timing:
+    clearance: 2
+    approach: 2
+    seal_wait: 0.5
+    extract: 2
+    deploy: 0.8
+    raise: 2
+    transport: 4
+    lower: 2
+    release: 0.8
+    retract: 2
+    settle: 1
+    abort: 1
+
+# Mock controller settings for the autonomous physical KUKA cell.
+cell:
+  pallet_center: [0.55, 0.60]  # All twelve slots inside the chosen KUKA workspace.
+  home_tool_position: [0.3, -0.4, 0.5]
+  safe_height: 0.5
+  mock_position_kp: 200000
+  mock_position_kv: 2000
+  planner_sample_period: 0.04
+  monitor_period: 0.01
+  collision_penetration_tolerance: 0.001
+  ray_clearance: 0.30
+  initial_joint_seed: [0, -0.7, 1.7, -1.5, -1.5, -2.8]
+  mechanical_release_clearance: 0.025  # Free gravity seating; no kinematic load placement.
+  jaw_deploy_time: 0.5
+  sleep: true  # MuJoCo contact islands wake on contact; no frozen load bodies.
+
+# Five overlapping ingots dropped gently into one compact, wall-free heap.
+compact_heap:
+  xy_span: [0.06, 0.06]
+  base_radius: 0.17
+  upper_radius: 0.09
+  maximum_tilt_deg: 18
+  drop_clearance: 0.035
+  drop_interval: 1.0
+  settle_time: 6.0
+  validation_window: 1.0
+  maximum_drift: 0.005
+  maximum_kinetic_energy: 0.001
+  maximum_penetration: 0.001
+  maximum_footprint: [0.8, 0.8]

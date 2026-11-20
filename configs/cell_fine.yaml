@@ -1,0 +1,5 @@
+# Overrides merged into default.yaml; numerical sensitivity check for the robot cell.
+solver:
+  timestep: 0.0005
+  iterations: 150
+  tolerance: 1.0e-10

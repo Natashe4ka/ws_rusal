@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "experiments_date": "2026-10-25",
+  "description": "Recorded experiment summaries; placement and strict quality are separate criteria.",
+  "cases": {
+    "compact5_hybrid": {
+      "complete": true,
+      "transferred": 5,
+      "remaining": 0,
+      "quality_passes": 5,
+      "stop_reason": "pallet_full",
+      "max_speed_ratio": 0.25016678804165043,
+      "max_effort_ratio": 0.6091452568016473,
+      "robot_collisions": [],
+      "warnings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source_report_sha256": "81e927cc904b09ee1b8300c06dbac98a39f4578762cb9f7bf330404a12e0c90c",
+      "source_report": "results/share/gripper_comparison/hybrid_run.json",
+      "final_supported_count": 5,
+      "final_within_pallet_count": null,
+      "final_max_position_error_m": 0.001198418869869115
+    },
+    "controlled_stack12": {
+      "complete": true,
+      "transferred": 12,
+      "remaining": 0,
+      "quality_passes": 12,
+      "stop_reason": "pallet_full",
+      "max_speed_ratio": 0.5849478587408157,
+      "max_effort_ratio": 0.6148704119838909,
+      "robot_collisions": [],
+      "warnings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source_report_sha256": "46700693a0fd337795f6dc1d5f8030d15453ccb7ae61b2b8b4d0abef7c179d23",
+      "source_report": "results/logs/palletizing12_automatic.json",
+      "final_supported_count": 12,
+      "final_within_pallet_count": null,
+      "final_max_position_error_m": 0.0002765215687472381,
+      "scope_note": "Controlled stacks, not a random dense heap."
+    },
+    "variable_batch10": {
+      "complete": true,
+      "transferred": 10,
+      "remaining": 0,
+      "quality_passes": 2,
+      "stop_reason": "pallet_full",
+      "max_speed_ratio": 0.2529187923868792,
+      "max_effort_ratio": 1.0000000000007878,
+      "robot_collisions": [],
+      "warnings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source_report_sha256": "4353c3f1b7d0569b4ddae677aa117ddb4d0cf900ee304a9acfce3b30b1072dd4",
+      "source_report": "results/logs/batch10_retry_complete.json",
+      "final_supported_count": 10,
+      "final_within_pallet_count": 10,
+      "final_max_position_error_m": 0.010429232749476677,
+      "scope_note": "Includes retries, controller changes and physical checkpoint continuations; not one unchanged uninterrupted run."
+    },
+    "variable_cross24": {
+      "complete": false,
+      "transferred": 11,
+      "remaining": 13,
+      "quality_passes": 2,
+      "stop_reason": "Robot collision in TRANSPORT: ('tool_case', 'jaw_pad_right')",
+      "max_speed_ratio": 0.2581060628888423,
+      "max_effort_ratio": 0.7389694421903721,
+      "robot_collisions": [
+        [
+          "tool_case",
+          "jaw_pad_right"
+        ]
+      ],
+      "warnings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "packing_summary": [
+        {
+          "layer": 0,
+          "count": 8,
+          "nominal_footprint_m2": 0.6308874694203767,
+          "nominal_area_fraction": 0.6571744473128924
+        },
+        {
+          "layer": 1,
+          "count": 3,
+          "nominal_footprint_m2": 0.2548329573734322,
+          "nominal_area_fraction": 0.2654509972639919
+        },
+        {
+          "layer": 2,
+          "count": 0,
+          "nominal_footprint_m2": 0,
+          "nominal_area_fraction": 0.0
+        }
+      ],
+      "source_report_sha256": "1e31491dd8fa8a0684cfd594a8aa103ee03ea3f3e784c4d7675a56849a51468b",
+      "source_report": "results/logs/cross24_live.json",
+      "final_supported_count": 11,
+      "final_within_pallet_count": 10,
+      "final_max_position_error_m": 0.00903465659764892,
+      "scope_note": "Stopped by gripper self-contact; one earlier placement failed the final boundary audit."
+    }
+  },
+  "kinematics": {
+    "samples": 100,
+    "max_position_error_m": 1.8343894894033213e-15,
+    "max_orientation_error_rad": 1.56069591814522e-15,
+    "upstream_commit": "5ddbc41ce8726fd680bcc19562d78bcabfbdf96d"
+  }
+}

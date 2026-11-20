@@ -1,0 +1,35 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  physics:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      MUJOCO_GL: egl
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: recursive
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install dependencies
+        run: python -m pip install -e '.[dev]'
+      - name: Verify robot revision
+        run: python scripts/bootstrap_robot.py
+      - name: Check formatting and syntax
+        run: |
+          ruff format --check src/rusal_mujoco src/rusal_motion_planning scripts
+          ruff check src/rusal_mujoco src/rusal_motion_planning scripts
+      - name: Run tests
+        run: python -m pytest -q

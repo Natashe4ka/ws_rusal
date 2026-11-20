@@ -1,0 +1,6 @@
+{
+  "repository": "https://github.com/kuka-ros/kuka_robot_descriptions.git",
+  "revision": "5ddbc41ce8726fd680bcc19562d78bcabfbdf96d",
+  "path": "src/third_party/kuka_robot_descriptions",
+  "license": "Apache-2.0"
+}

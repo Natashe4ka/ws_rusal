@@ -1,0 +1,43 @@
+# Catalog-based drive/envelope with custom research fingers. No telescoping jaws.
+gripper:
+  id: schunk-pgn200
+  label: 'SCHUNK PGN-plus-P 200-1 / CUSTOM FINGERS / MOCK CONTROL'
+  mode: mechanical
+  video_note: 'Catalog drive/envelope + custom flat fingers. Assumed derated force 2x1000 N. Mock controller; not a manufacturer digital twin. Playback 1x simulation time.'
+  case_half_sizes: [0.050, 0.117, 0.0455]
+  case_center: [0, 0, 0.1005]
+  case_mass: 5.2
+  color: [0.25, 0.32, 0.42, 1]
+  pick_footprint: [[0,0,0],[-0.06,-0.08,0],[-0.06,0.08,0],[0.06,-0.08,0],[0.06,0.08,0]]
+  assumptions:
+    - 'Catalog: body 234x100x91 mm, 5.2 kg, 25 mm stroke per jaw, nominal total closing force 3800 N at 6 bar.'
+    - 'Drive envelope rotated so the jaws close across the 200 mm workpiece width.'
+    - 'Custom flat steel fingers 120x16x110 mm, 1.65 kg each, rectangular geometry approximation.'
+    - 'Conservative assumed force at fingers: 1000 N each, 2000 N total; not a calibrated force-versus-length curve.'
+    - 'Mock force-limited position drive, no pneumatic pressure/transmission dynamics or certified loss-of-pressure retention.'
+    - 'Release 25 mm above support, followed by actual gravity seating. Pallet targets have 40 mm gaps.'
+  sources:
+    - https://schunk.com/us/en/gripping-systems/parallel-gripper/pgn-plus-p/pgn-plus-p-200-1/p/000000000000318616
+vacuum:
+  enabled: false
+jaws:
+  enabled: true
+  fixed: true
+  mount_z: 0
+  open_half_gap: 0.125
+  closed_travel: 0.025
+  pad_half_sizes: [0.060, 0.008, 0.055]
+  finger_mass: 1.65
+  force_per_jaw: 1000
+  kp: 50000
+  damping: 150
+  max_speed: 0.04
+  tip: flat
+cell:
+  mechanical_release_clearance: 0.025
+pallet:
+  layout: spaced
+  grid: [5, 1]
+  long_axis: y
+  offset: [0, -0.20]
+  gaps: [0.04, 0.04]

@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rusal-sim"
+version = "0.1.0"
+description = "Contact dynamics simulation for robotic ingot handling and palletizing"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {file = "LICENSE"}
+maintainers = [{email = "safonova.nk@gmail.com"}]
+dependencies = [
+    "mujoco>=3.17,<4",
+    "numpy>=1.26,<3",
+    "scipy>=1.11,<2",
+    "PyYAML>=6,<7",
+    "matplotlib>=3.6,<4",
+    "trimesh>=5.2,<6",
+    "imageio>=2.38,<3",
+    "imageio-ffmpeg>=0.6,<1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4,<9", "ruff>=0.17,<1"]
+
+[project.scripts]
+rusal-sim = "rusal_sim.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src/rusal_mujoco"]
+
+[tool.pytest.ini_options]
+testpaths = ["src/rusal_mujoco/tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E9", "F63", "F7", "F82"]

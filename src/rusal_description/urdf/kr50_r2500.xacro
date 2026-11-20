@@ -1,0 +1,1 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="kr50_r2500"><xacro:include filename="../../third_party/kuka_robot_descriptions/kuka_iontec_support/urdf/kr50_r2500_macro.xacro"/><xacro:kuka_kr50_r2500_robot prefix="" package_name="kuka_iontec_support"/></robot>

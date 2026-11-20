@@ -1,0 +1,128 @@
+vacuum:
+  layout: FOAM
+  rectangle:
+  - 0.06
+  - 0.05
+  pad_half_thickness: 0.01
+  pad_center_z: -0.015
+  spring_stiffness: 1500
+  spring_damping: 8
+  enabled: true
+  cell_centers:
+  - - -0.12
+    - -0.05
+  - - -0.12
+    - 0
+  - - -0.12
+    - 0.05
+  - - -0.06
+    - -0.05
+  - - -0.06
+    - 0
+  - - -0.06
+    - 0.05
+  - - 0
+    - -0.05
+  - - 0
+    - 0
+  - - 0
+    - 0.05
+  - - 0.06
+    - -0.05
+  - - 0.06
+    - 0
+  - - 0.06
+    - 0.05
+  - - 0.12
+    - -0.05
+  - - 0.12
+    - 0
+  - - 0.12
+    - 0.05
+  pad_mass: 0.02
+jaws:
+  force_per_jaw: 1000
+  kp: 50000
+  damping: 150
+  max_speed: 0.04
+  open_half_gap: 0.125
+  closed_travel: 0.025
+  deploy_travel: 0.1
+  enabled: true
+  fixed: false
+  mount_z: 0.075
+  pad_half_sizes:
+  - 0.06
+  - 0.008
+  - 0.035
+  finger_mass: 1.0
+  retract_interlock: true
+pallet:
+  layout: spaced
+  grid:
+  - 5
+  - 1
+  long_axis: y
+  offset:
+  - 0
+  - -0.2
+  gaps:
+  - 0.04
+  - 0.04
+heap_execution:
+  minimum_live_cups: 8
+gripper:
+  id: hybrid-foam-jaws
+  label: 'HYBRID: FOAM LIFT -> DEPLOY JAWS -> VACUUM OFF / MOCK CONTROL'
+  mode: hybrid
+  video_note: Custom hybrid research model. Vacuum pickup, deploy jaws after lift,
+    verify grip with vacuum OFF. Foam/rib seal uncalibrated. Playback 1x simulation
+    time.
+  case_half_sizes:
+  - 0.15
+  - 0.075
+  - 0.025
+  case_center:
+  - 0
+  - 0
+  - 0.025
+  case_mass: 2.0
+  color:
+  - 0.1
+  - 0.35
+  - 0.7
+  - 1
+  holding_safety_factor: 2.0
+  assumptions:
+  - Configured 300x150 mm area, 20 mm foam; catalog supports these options.
+  - Fifteen independently spring-supported rigid tiles approximate foam, not actual
+    suction-cell CAD.
+  - Case mass 2 kg, pad mass, stiffness and vacuum dynamics are assumptions.
+  - 'Conservative seal baseline: grooves are NOT assumed sealed by foam.'
+  - No measured leakage, pump curve or elastomer deformation; not a real-product performance
+    prediction.
+  - Custom combination, not a commercial product. Upper housing includes an assumed
+    5.2 kg mechanical drive.
+  - 'Custom deploy stage: 100 mm stroke, finite 300 N drive; flat fingers 120x16x70
+    mm, 1 kg each.'
+  - Jaw stroke 25 mm per side and force limit 1000 N per side. Grip is checked for
+    1 second with vacuum off.
+  sources:
+  - https://www.piab.com/kenos-vacuum-gripping-systems/kvg/kenos-vacuum-gripper-kvg150
+  - https://schunk.com/us/en/gripping-systems/parallel-gripper/pgn-plus-p/pgn-plus-p-200-1/p/000000000000318616
+  require_post_lift_clamp: true
+  extra_cases:
+  - name: drive
+    half_sizes:
+    - 0.05
+    - 0.117
+    - 0.0455
+    center:
+    - 0
+    - 0
+    - 0.1005
+    mass: 5.2
+cell:
+  tool_robot_planning_clearance: 0.015
+  planner_joint_edge_resolution: 0.01
+  planner_speed_fraction: 0.25

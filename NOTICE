@@ -1,0 +1,15 @@
+rusal-sim
+
+The ROS package declares the Apache License, Version 2.0. The repository-level
+LICENSE contains the same license text.
+
+The KUKA robot descriptions and meshes are maintained separately in:
+https://github.com/kuka-ros/kuka_robot_descriptions
+Pinned revision: 5ddbc41ce8726fd680bcc19562d78bcabfbdf96d
+License: Apache-2.0; see the upstream LICENSE and file-level notices.
+
+src/rusal_description/urdf/kr50_r2500.urdf is an expanded representation of
+that upstream model. Original upstream licenses and attribution are retained.
+
+Piab and SCHUNK product names identify catalog references for the experimental
+gripper models. No endorsement or manufacturer-validated digital twin is claimed.
